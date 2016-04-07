@@ -8,5 +8,20 @@
  */
 class View
 {
+    public $arr=array();
+    function show(){
+        $contorl = isset($_GET['contorl']) ? $_GET['contorl'] : 'page';
+        extract($this->arr);
+        include_once "View/".$contorl."View.html";
+    }
 
+    function assign($name,$value){
+        $this->arr[$name]=$value;
+    }
+
+    function __destruct()
+    {
+
+        $this->show();
+    }
 }
