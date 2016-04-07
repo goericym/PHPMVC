@@ -9,6 +9,7 @@
 class View
 {
     public $arr=array();
+
     function show(){
         $contorl = isset($_GET['contorl']) ? $_GET['contorl'] : 'page';
         extract($this->arr);
@@ -19,8 +20,8 @@ class View
         $this->arr[$name]=$value;
     }
 
-    function __destruct()
-    {
-        $this->show();
-    }
+//    function __destruct()
+//    {
+//        $this->show();
+//    }
 }

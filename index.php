@@ -8,4 +8,5 @@
     require_once ("Core/Controller.php");
     $contorl = isset($_GET['contorl']) ? $_GET['contorl'] : 'page';
     $func = isset($_GET['func']) ? $_GET['func'] : 'home';
-    new Controller($contorl, $func);
+    $main=new Controller($contorl, $func);
+    $main->getdata();
