@@ -21,7 +21,6 @@ class View
 
     function __destruct()
     {
-
         $this->show();
     }
 }
