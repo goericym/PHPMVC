@@ -8,12 +8,12 @@
  */
 class Controller
 {
-    function __construct()
+    function __construct($control, $func)
     {
-        $name=$_GET["contorl"]."Contorl";
+        $name=$control."Contorl";
         include "Contoller/".$name.".php";
         $obj= new $name;
-        $obj->$_GET["func"]();
+        $obj->$func();
     }
 
 
