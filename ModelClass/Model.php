@@ -6,8 +6,8 @@
  * Date: 2016/4/7
  * Time: 下午 03:24
  */
-include_once "Core/DB.php";
-class Model
+include_once "DB.php";
+class Model extends \MVC\abstractModel
 {
     public  function LoginCount(){
         $db= new DB("MessageBoard");

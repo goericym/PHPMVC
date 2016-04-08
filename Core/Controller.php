@@ -12,10 +12,10 @@ class Controller
 {
     private $model;
     private $view;
-    function __construct($control, $func)
+    function __construct($modelName, $viewName)
     {
-        $this->model=new Model();
-        $this->view =new View();
+        $this->model=new $modelName;
+        $this->view =new $viewName;
 
 //        $name=$control."View";
 //        include "App/".$name.".php";
@@ -23,15 +23,10 @@ class Controller
 //        $obj->$func();
     }
     function getData(){
-
-
             $count=$this->model->LoginCount();
-
             $this->view->assign('wel',$count);
-
             //$this->view->display('./pageVlew.html');
             $this->view->show();
-
     }
 
 
