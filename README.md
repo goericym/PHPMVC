@@ -1,6 +1,8 @@
 # PHPMVC  
 練習PHP MVC  
 參考:https://www.youtube.com/watch?v=dc1bS4rzuok  
+
+使用https://github.com/phpmetrics/PhpMetrics 做分析 
   
 1.index.php會帶入contorl、model跟view的參數  
 2.controllerBase -> toModelView  

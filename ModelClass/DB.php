@@ -6,43 +6,43 @@
  * Date: 2016/3/29
  * Time: 下午 12:03
  */
-
 class DB extends \MVC\abstractDB
 {
-    private $_ServerName;
-    private $_UserName;
-    private $_password;
-    private $_dbName;
+//    private $_ServerName;
+//    private $_UserName;
+//    private $_password;
+//    private $_dbName;
     private $_conn;
 
     public function __construct($DB_Name)
     {
-        $this->_ServerName = "localhost";
-        $this->_UserName = "root";
-        $this->_password = "asdf1234";
-        $this->_dbName= $DB_Name ;
-        $this->_conn = new PDO("mysql:host=$this->_ServerName;dbname=$this->_dbName", $this->_UserName, $this->_password);
+        $_ServerName = "localhost";
+        $_UserName = "root";
+        $_password = "asdf1234";
+        $_dbName= $DB_Name ;
+        $this->_conn = new PDO("mysql:host=$_ServerName;dbname=$_dbName", $_UserName, $_password);
         $this->_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->_conn->exec("SET NAMES utf8");
     }
-
-    public  function Select($sql, $ArrayVar)
-    {
+    public  function query($sql,$ArrayVar){
         $sth = $this->_conn->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
         $sth->execute($ArrayVar);
-        $res = $sth->fetchAll();
-        return $res;
-    }
-    public function Exec($sql,$ArrayVar)
-    {
-        $sth = $this->_conn->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-        return $sth->execute($ArrayVar);
-    }
-    public  function GetLastId()
-    {
-        return $this->_conn->lastInsertId();
+        $count = $sth->fetchColumn();
+        return $count;
     }
     public  function Count($sql,$ArrayVar){
+        $sth = $this->_conn->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+        $sth->execute($ArrayVar);
+        $count = $sth->fetchColumn();
+        return $count;
+    }
+    public  function Count1($sql,$ArrayVar){
+        $sth = $this->_conn->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+        $sth->execute($ArrayVar);
+        $count = $sth->fetchColumn();
+        return $count;
+    }
+    public  function Count2($sql,$ArrayVar){
         $sth = $this->_conn->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
         $sth->execute($ArrayVar);
         $count = $sth->fetchColumn();

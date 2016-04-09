@@ -7,15 +7,22 @@
  */
 
     require_once "AbstractClass/abstractController.php";
-    require_once "AbstractClass/abstractView.php";
-    require_once "AbstractClass/abstractModel.php";
     require_once "AbstractClass/abstractDB.php";
-    require_once "ControllerClass/Controller.php";
-    require_once "ModelClass/Model.php";
-    require_once "ViewClass/View.php";
+    require_once "AbstractClass/abstractModel.php";
+    require_once "AbstractClass/abstractView.php";
 
-    $c = isset($_GET['c']) ? $_GET['c'] : 'mainController';
-    $m = isset($_GET['m']) ? $_GET['m'] : 'model';
-    $v = isset($_GET['v']) ? $_GET['v'] : 'view';
+    $act=isset($_GET['act']) ? $_GET['act'] : 'Index';
+    $c = "Controller_".$act;
+    $m = "model_".$act;
+    $v = "view_".$act;
+
+    $path_c="ControllerClass/Controller_".$act.".php";
+    $path_m="ModelClass/Model_".$act.".php";
+    $path_v="ViewClass/View_".$act.".php";
+
+    require_once $path_c;
+    require_once $path_m;
+    require_once $path_v;
+
     $main=new $c($m, $v);
     $main->TODO();

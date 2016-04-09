@@ -3,10 +3,12 @@
 /**
  * Created by PhpStorm.
  * User: Eric
- * Date: 2016/4/8
- * Time: 下午 04:54
+ * Date: 2016/4/9
+ * Time: 下午 05:31
  */
-class mainController extends \MVC\abstractController
+
+
+class Controller_Login extends \MVC\abstractController
 {
     private $model;
     private $view;
@@ -20,7 +22,7 @@ class mainController extends \MVC\abstractController
         $arr=null;
         $count=$this->model->getData($arr);
         $this->view->assign('wel',$count);
-        $dir="ShowHtml/pageView.html";
+        $dir="ShowHtml/login.html";
         $this->view->show($dir);
     }
 }
