@@ -9,31 +9,41 @@
 include_once "DB.php";
 class Model extends \MVC\abstractModel
 {
-      function getData(){
+     public function getData($ArrayVar){
         $db= new DB("MessageBoard");
         $sql = "SELECT COUNT(*) FROM login";
-        $arr= null;
+        return $db->Count($sql,$ArrayVar);
+    }
+
+}
+class ModelMainMsg extends \MVC\abstractModel
+{
+      function getData($ArrayVar){
+        $db= new DB("MessageBoard");
+        $sql = "SELECT * FROM message";
+        return  $db->Select($sql, $ArrayVar);
+    }
+}
+
+class ModelMainReMsg extends \MVC\abstractModel
+{
+      function getData($ArrayVar){
+        $db= new DB("MessageBoard");
+        $sql = "SELECT * FROM ReMessage";
+        return  $db->Select($sql, $ArrayVar);
+    }
+
+}
+
+
+class ModelLoginCheck extends \MVC\abstractModel
+{
+    function getData($ArrayVar){
+        $db= new DB("MessageBoard");
+        $sql = "SELECT COUNT(*) FROM login where account=:account LIMIT 1";
+        $arr= array(":account"=> $ArrayVar['account']);
         return $db->Count($sql,$arr);
-    }
 
-}
-class Modelaaa extends \MVC\abstractModel
-{
-      function getData(){
-        $db= new DB("MessageBoard");
-        $sql = "SELECT * FROM message";
-        $arr = null;
-        return  $db->Select($sql, $arr);
-    }
-}
-
-class Modelbbb extends \MVC\abstractModel
-{
-      function getData(){
-        $db= new DB("MessageBoard");
-        $sql = "SELECT * FROM message";
-        $arr = null;
-        return  $db->Select($sql, $arr);
     }
 
 }

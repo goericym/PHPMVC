@@ -17,7 +17,8 @@ class mainController extends \MVC\abstractController
     }
     function TODO()
     {
-        $count=$this->model->getData();
+        $arr=null;
+        $count=$this->model->getData($arr);
         $this->view->assign('wel',$count);
         $dir="ShowHtml/pageView.html";
         $this->view->show($dir);

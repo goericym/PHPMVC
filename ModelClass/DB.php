@@ -26,14 +26,14 @@ class DB extends \MVC\abstractDB
         $this->_conn->exec("SET NAMES utf8");
     }
 
-    protected  function Select($sql, $ArrayVar)
+    public  function Select($sql, $ArrayVar)
     {
         $sth = $this->_conn->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
         $sth->execute($ArrayVar);
         $res = $sth->fetchAll();
         return $res;
     }
-     protected  function Exec($sql,$ArrayVar)
+    public function Exec($sql,$ArrayVar)
     {
         $sth = $this->_conn->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
         return $sth->execute($ArrayVar);

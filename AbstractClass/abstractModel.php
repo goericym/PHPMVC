@@ -11,5 +11,5 @@ namespace MVC;
 
 abstract class abstractModel
 {
-    abstract protected function getData();
+    abstract public function getData($ArrayVar);
 }

@@ -11,7 +11,7 @@ namespace MVC;
 
 abstract class abstractDB
 {
-    abstract protected  function Select($sql, $ArrayVar);
-    abstract protected function Exec($sql, $ArrayVar);
+    abstract public function Select($sql, $ArrayVar);
+    abstract public function Exec($sql, $ArrayVar);
 
 }
