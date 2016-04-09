@@ -9,7 +9,5 @@
 namespace MVC;
 abstract class abstractController
 {
-    private $model;
-    private $view;
-    abstract protected function toModelView();
+    abstract protected function TODO();
 }

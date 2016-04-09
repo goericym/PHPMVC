@@ -15,11 +15,11 @@ class mainController extends \MVC\abstractController
         $this->model = new $modelName;
         $this->view = new $viewName;
     }
-    function toModelView()
+    function TODO()
     {
         $count=$this->model->getData();
         $this->view->assign('wel',$count);
-        $dir="Show/pageView.html";
+        $dir="ShowHtml/pageView.html";
         $this->view->show($dir);
     }
 }
