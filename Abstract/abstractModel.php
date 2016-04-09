@@ -9,7 +9,7 @@
 namespace MVC;
 
 
-class abstractModel
+abstract class abstractModel
 {
-    function getData(){}
+    abstract protected function getData();
 }

@@ -6,7 +6,8 @@
  * Date: 2016/3/29
  * Time: 下午 12:03
  */
-class DB
+
+class DB extends \MVC\abstractDB
 {
     private $_ServerName;
     private $_UserName;
@@ -25,21 +26,20 @@ class DB
         $this->_conn->exec("SET NAMES utf8");
     }
 
-    public  function Select($sql, $ArrayVar)
+    protected  function Select($sql, $ArrayVar)
     {
         $sth = $this->_conn->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
         $sth->execute($ArrayVar);
         $res = $sth->fetchAll();
         return $res;
     }
-    public  function Exec($sql,$ArrayVar)
+     protected  function Exec($sql,$ArrayVar)
     {
         $sth = $this->_conn->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
         return $sth->execute($ArrayVar);
     }
     public  function GetLastId()
     {
-
         return $this->_conn->lastInsertId();
     }
     public  function Count($sql,$ArrayVar){
@@ -48,7 +48,6 @@ class DB
         $count = $sth->fetchColumn();
         return $count;
     }
-
     function __destruct()
     {
         $this->_conn = null;

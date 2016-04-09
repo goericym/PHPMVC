@@ -11,7 +11,5 @@ abstract class abstractController
 {
     private $model;
     private $view;
-    function toModelView(){
-
-    }
+    abstract protected function toModelView();
 }

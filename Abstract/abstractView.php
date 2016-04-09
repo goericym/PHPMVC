@@ -10,6 +10,6 @@ namespace MVC;
 
 abstract class abstractView
 {
-    function assign($name,$value){}
-    function show($dir){}
+    abstract protected function assign($name,$value);
+    abstract protected function show($dir);
 }
