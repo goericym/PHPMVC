@@ -39,7 +39,6 @@ class DB
     }
     public  function GetLastId()
     {
-
         return $this->_conn->lastInsertId();
     }
     public  function Count($sql,$ArrayVar){
@@ -48,7 +47,6 @@ class DB
         $count = $sth->fetchColumn();
         return $count;
     }
-
     function __destruct()
     {
         $this->_conn = null;
