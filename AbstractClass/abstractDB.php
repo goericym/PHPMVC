@@ -11,9 +11,5 @@ namespace MVC;
 
 abstract class abstractDB
 {
-//    abstract public function Select($sql, $ArrayVar);
     abstract public function Query($sql, $ArrayVar);
-    abstract public function Count($sql, $ArrayVar);
-    abstract public function Count1($sql, $ArrayVar);
-    abstract public function Count2($sql, $ArrayVar);
 }

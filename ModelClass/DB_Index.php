@@ -6,7 +6,7 @@
  * Date: 2016/3/29
  * Time: 下午 12:03
  */
-class DB extends \MVC\abstractDB
+class DB_Index extends \MVC\abstractDB
 {
 //    private $_ServerName;
 //    private $_UserName;
@@ -30,24 +30,7 @@ class DB extends \MVC\abstractDB
         $count = $sth->fetchColumn();
         return $count;
     }
-    public  function Count($sql,$ArrayVar){
-        $sth = $this->_conn->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-        $sth->execute($ArrayVar);
-        $count = $sth->fetchColumn();
-        return $count;
-    }
-    public  function Count1($sql,$ArrayVar){
-        $sth = $this->_conn->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-        $sth->execute($ArrayVar);
-        $count = $sth->fetchColumn();
-        return $count;
-    }
-    public  function Count2($sql,$ArrayVar){
-        $sth = $this->_conn->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-        $sth->execute($ArrayVar);
-        $count = $sth->fetchColumn();
-        return $count;
-    }
+
     function __destruct()
     {
         $this->_conn = null;
